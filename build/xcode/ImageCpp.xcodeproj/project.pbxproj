@@ -1,0 +1,303 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AD03D2401E14471700916C6F /* image.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD03D23B1E14471700916C6F /* image.cpp */; };
+		AD03D2411E14471700916C6F /* image_pixel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD03D23E1E14471700916C6F /* image_pixel.cpp */; };
+		AD5D180E1DE7FA3200E1D10C /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD5D180D1DE7FA3200E1D10C /* main.cpp */; };
+		AD5D18201DE807CF00E1D10C /* libpng16.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AD5D181F1DE807CF00E1D10C /* libpng16.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		AD5D18081DE7FA3200E1D10C /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		AD03D23B1E14471700916C6F /* image.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = image.cpp; sourceTree = "<group>"; };
+		AD03D23C1E14471700916C6F /* image.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = image.hpp; sourceTree = "<group>"; };
+		AD03D23E1E14471700916C6F /* image_pixel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = image_pixel.cpp; sourceTree = "<group>"; };
+		AD03D23F1E14471700916C6F /* image_pixel.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = image_pixel.hpp; sourceTree = "<group>"; };
+		AD5D180A1DE7FA3200E1D10C /* ImageCpp */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ImageCpp; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD5D180D1DE7FA3200E1D10C /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		AD5D181F1DE807CF00E1D10C /* libpng16.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpng16.a; path = ../../../../../../usr/local/lib/libpng16.a; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AD5D18071DE7FA3200E1D10C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AD5D18201DE807CF00E1D10C /* libpng16.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AD03D23A1E14471700916C6F /* image */ = {
+			isa = PBXGroup;
+			children = (
+				AD03D23B1E14471700916C6F /* image.cpp */,
+				AD03D23C1E14471700916C6F /* image.hpp */,
+			);
+			name = image;
+			path = ../../../src/image;
+			sourceTree = "<group>";
+		};
+		AD03D23D1E14471700916C6F /* pixel */ = {
+			isa = PBXGroup;
+			children = (
+				AD03D23E1E14471700916C6F /* image_pixel.cpp */,
+				AD03D23F1E14471700916C6F /* image_pixel.hpp */,
+			);
+			name = pixel;
+			path = ../../../src/pixel;
+			sourceTree = "<group>";
+		};
+		AD5D18011DE7FA3200E1D10C = {
+			isa = PBXGroup;
+			children = (
+				AD5D180C1DE7FA3200E1D10C /* ImageCpp */,
+				AD5D180B1DE7FA3200E1D10C /* Products */,
+				AD5D181E1DE807CF00E1D10C /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		AD5D180B1DE7FA3200E1D10C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AD5D180A1DE7FA3200E1D10C /* ImageCpp */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AD5D180C1DE7FA3200E1D10C /* ImageCpp */ = {
+			isa = PBXGroup;
+			children = (
+				AD03D23A1E14471700916C6F /* image */,
+				AD03D23D1E14471700916C6F /* pixel */,
+				AD5D180D1DE7FA3200E1D10C /* main.cpp */,
+			);
+			path = ImageCpp;
+			sourceTree = "<group>";
+		};
+		AD5D181E1DE807CF00E1D10C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AD5D181F1DE807CF00E1D10C /* libpng16.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AD5D18091DE7FA3200E1D10C /* ImageCpp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AD5D18111DE7FA3200E1D10C /* Build configuration list for PBXNativeTarget "ImageCpp" */;
+			buildPhases = (
+				AD5D18061DE7FA3200E1D10C /* Sources */,
+				AD5D18071DE7FA3200E1D10C /* Frameworks */,
+				AD5D18081DE7FA3200E1D10C /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ImageCpp;
+			productName = ImageCpp;
+			productReference = AD5D180A1DE7FA3200E1D10C /* ImageCpp */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AD5D18021DE7FA3200E1D10C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = "Christian Howard";
+				TargetAttributes = {
+					AD5D18091DE7FA3200E1D10C = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 2HDSZMHBH8;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = AD5D18051DE7FA3200E1D10C /* Build configuration list for PBXProject "ImageCpp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = AD5D18011DE7FA3200E1D10C;
+			productRefGroup = AD5D180B1DE7FA3200E1D10C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AD5D18091DE7FA3200E1D10C /* ImageCpp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AD5D18061DE7FA3200E1D10C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AD5D180E1DE7FA3200E1D10C /* main.cpp in Sources */,
+				AD03D2401E14471700916C6F /* image.cpp in Sources */,
+				AD03D2411E14471700916C6F /* image_pixel.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		AD5D180F1DE7FA3200E1D10C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		AD5D18101DE7FA3200E1D10C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		AD5D18121DE7FA3200E1D10C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 2HDSZMHBH8;
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		AD5D18131DE7FA3200E1D10C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 2HDSZMHBH8;
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AD5D18051DE7FA3200E1D10C /* Build configuration list for PBXProject "ImageCpp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AD5D180F1DE7FA3200E1D10C /* Debug */,
+				AD5D18101DE7FA3200E1D10C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AD5D18111DE7FA3200E1D10C /* Build configuration list for PBXNativeTarget "ImageCpp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AD5D18121DE7FA3200E1D10C /* Debug */,
+				AD5D18131DE7FA3200E1D10C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AD5D18021DE7FA3200E1D10C /* Project object */;
+}
