@@ -103,7 +103,7 @@ public:
         T s = (dy2*dx - dx2*dy)/detA;
         T t = (-dy1*dx + dx1*dy)/detA;
         
-        return s >= -eps && t >= -eps && (s + t <= (1.0 + eps));
+        return s >= 0.0 && t >= 0.0 && (s + t <= (1.0 + eps));
         
     }
     

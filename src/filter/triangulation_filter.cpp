@@ -8,11 +8,9 @@
 
 #include "triangulation_filter.hpp"
 #include "corner_detector.hpp"
-//#include "convex_hull3D.h"
 #include <stack>
 #include <map>
 #include <random>
-#include "convex_hull3d.hpp"
 #include "delaunay_triangulation.hpp"
 
 namespace filter {
@@ -90,7 +88,6 @@ namespace filter {
         img::pixel avg_color;
         std::stack<std::pair<int,int>> pixel_q;
         std::vector<bool> hit_list(w*h,false);
-        //std::map<int, bool> hit_list;
         
         // push triangle vertices and centroid
         int x_avg = 0, y_avg = 0;
@@ -144,14 +141,13 @@ namespace filter {
                              const std::vector<int> & x, const std::vector<int> & y,
                              const std::vector<double> & xf, const std::vector<double> & yf,
                              const img::pixel & color,
-                             img::image & new_img)
+                             img::image & new_img,
+                             std::vector<bool> & hit_list)
     {
         int w = new_img.width(), h = new_img.height();
         std::queue<std::pair<int,int>> pixel_q;
         unsigned int size = 0;
-        
-        std::vector<bool> hit_list(w*h,false);
-        //std::map<int, bool> hit_list;
+        std::vector<bool> add_list(w*h,false);
         
         // push triangle vertices and centroid
         int x_avg = 0, y_avg = 0;
@@ -159,40 +155,36 @@ namespace filter {
             x_avg += x[tri.vertices[i]];
             y_avg += y[tri.vertices[i]];
             pixel_q.push( std::pair<int,int>(x[tri.vertices[i]], y[tri.vertices[i]]) );
-            hit_list[x[tri.vertices[i]] + y[tri.vertices[i]]*w] = true;
+            add_list[x[tri.vertices[i]] + y[tri.vertices[i]]*w] = true;
         }
         x_avg /= 3;
         y_avg /= 3;
         pixel_q.push( std::pair<int,int>(x_avg, y_avg) );
-        hit_list[x_avg + y_avg*w] = true;
+        add_list[x_avg + y_avg*w] = true;
         
         // loop through a fill of the triangle and find the average color
         while( pixel_q.size() != 0 ){
             std::pair<int,int> coord = pixel_q.front(); pixel_q.pop();
             
             // process triangle
-            if( tri.pointWithinTriangle(coord.first, coord.second, &xf[0], &yf[0], xf.size(), 1e-2) ){
+            if( tri.pointWithinTriangle(coord.first, coord.second, &xf[0], &yf[0], xf.size()) ){
                 
                 new_img(coord.first, coord.second) = color;
+                hit_list[coord.first + coord.second*w] = true;
                 
-                // add neighbors that haven't been touched into the list
-                int xdel[4] = {-1, 1, 0, 0};
-                int ydel[4] = {0, 0, -1, 1};
-                
-                for(int i = 0; i < 4; ++i){
-                    int xn = coord.first + xdel[i];
-                    int yn = coord.second + ydel[i];
-                    if( (xn < w && xn >= 0 && yn < h && yn >= 0 )
-                       && !hit_list[xn + yn*w] )
-                    {
-                        pixel_q.push( std::pair<int,int>(xn, yn) );
-                        hit_list[xn + yn*w] = true;
+                const int r = 1;
+                for(int i = -r; i <= r; ++i){
+                    for(int j = -r; j <= r; ++j){
+                        int xn = coord.first + i;
+                        int yn = coord.second + j;
+                        if( (xn < w && xn >= 0 && yn < h && yn >= 0 ) && !add_list[xn + yn*w] ) {
+                            pixel_q.push( std::pair<int,int>(xn, yn) );
+                            add_list[xn + yn*w] = true;
+                        }
                     }
-                }// end for i
+                }
             }// end if tri
         }// end while
-        
-        //new_img.savePNG("/Users/cjh/Documents/new_img_update.png");
         
     }
     
@@ -205,6 +197,7 @@ namespace filter {
         std::vector<int> x,y;
         std::vector<double> xf, yf;
         std::vector<Triangle<double>> triangles;
+        std::vector<bool> hit_list(w*h,false);
         
         // find corner locations
         //detector::corners(orig_img, x, y, num_pts_use);
@@ -239,14 +232,28 @@ namespace filter {
                                                                       orig_img);
                 
                 // fill triangle in new image with average color
-                fillTriangleInImage( triangles[i], x, y, xf, yf, avg_color, new_img);
+                fillTriangleInImage( triangles[i], x, y, xf, yf, avg_color, new_img, hit_list);
                 
             }// end if
-            else{
-                printf("yippie!\n");
-            }
         }// end for i
         
+        // loop through the image to find pixels that have not
+        // been filled in and fill them in with a nearest neighbor value
+        int dw[] = {1, 1, 0, -1, -1, -1, 0, 1};
+        int dh[] = {0, 1, 1, 1, 0, -1, -1, -1};
+        for(int i = 0; i < w; ++i){
+            for(int j = 0; j < h; ++j){
+                if( !hit_list[i + j*w] ){
+                    for(int r = 0; r < 8; ++r){
+                        int xn = i + dw[r];
+                        int yn = j + dh[r];
+                        if( (xn < w && xn >= 0 && yn < h && yn >= 0 ) && hit_list[xn + yn*w] ) {
+                            new_img(i,j) = new_img(xn,yn); break;
+                        }
+                    }// end r loop
+                }
+            }// end j loop
+        }// end i loop
         
     }
     
