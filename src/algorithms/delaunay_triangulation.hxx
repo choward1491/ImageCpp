@@ -182,7 +182,7 @@ namespace delaunay {
         auto xbnds = getMinMax(x), ybnds = getMinMax(y);
         
         // init boxes for spatial hashing
-        std::vector<std::set<int>> hashtable(boxdims.first*boxdims.second);
+        std::vector<std::set<unsigned int>> hashtable(boxdims.first*boxdims.second);
         
         // clear triangle vector
         triangles.clear();
