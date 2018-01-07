@@ -45,7 +45,7 @@ namespace img {
     public:
         
         image();
-        image(int rows, int cols, pixel p = pixel() );
+        image(int width, int height, pixel p = pixel() );
         image( const std::string & load_img );
         
         void setDims( int width, int height );
@@ -57,14 +57,27 @@ namespace img {
         pixel & pixelAt(int r, int c);
         const pixel & pixelAt(int r, int c) const;
         
+        void save( const std::string & filename, Depth d = _16bit ) const;
+        void load( const std::string & filename );
+        
         void savePNG( const std::string & filename, Depth d = _16bit ) const;
         void loadPNG( const std::string & filename );
+        
+        void saveJPEG( const std::string & filename, Depth d = _16bit ) const;
+        void loadJPEG( const std::string & filename );
+        
+        void elem_mult( const image & img, image & result ) const;
+        
+        void convert2grayscale();
         
     private:
         std::vector<pixel> pixels;
         int w, h;
+        
         void write_png_file( const char *filename, const Depth & depth ) const;
         void read_png_file( const char *filename);
+        void write_jpeg_file( const char *filename, const Depth & depth ) const;
+        void read_jpeg_file( const char *filename);
         
     };
     

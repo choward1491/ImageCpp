@@ -33,22 +33,30 @@
 
 namespace img {
     
+    
     class pixel {
     public:
+        typedef double num_type;
+        
         pixel();
-        pixel(float r, float g, float b, float a = 1.0 );
-        void setRed( float r);
-        void setGreen( float g );
-        void setBlue( float b );
-        void setAlpha( float a );
-        float & r();
-        float & g();
-        float & b();
-        float & a();
-        const float & r() const;
-        const float & g() const;
-        const float & b() const;
-        const float & a() const;
+        pixel(num_type r, num_type g, num_type b, num_type a = 1.0 );
+        
+        void setRed( num_type r);
+        void setGreen( num_type g );
+        void setBlue( num_type b );
+        void setAlpha( num_type a );
+        void normalize();
+        void toGray();
+        
+        num_type & r();
+        num_type & g();
+        num_type & b();
+        num_type & a();
+        
+        const num_type & r() const;
+        const num_type & g() const;
+        const num_type & b() const;
+        const num_type & a() const;
         
         static pixel red();
         static pixel green();
@@ -58,8 +66,17 @@ namespace img {
         static pixel black();
         static pixel clear();
         
+        num_type & operator[](int idx);
+        num_type operator[](int idx) const;
+        pixel operator*( num_type scalar ) const;
+        pixel operator*( const pixel & p ) const;
+        void operator*=( num_type scalar );
+        void operator/=( num_type scalar );
+        void operator+=( const pixel & p );
+        void operator-=( const pixel & p );
+        
     private:
-        float color[4];
+        num_type color[4];
     };
     
 }

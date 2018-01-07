@@ -7,10 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F3344BA200151FE002FE2AA /* mat.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F3344B0200151FD002FE2AA /* mat.cpp */; };
+		3FE93D8E1F4725CE0032AAFA /* libpng16.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FE93D8D1F4725CE0032AAFA /* libpng16.a */; };
+		3FE93D901F47265D0032AAFA /* libz.1.2.8.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FE93D8F1F47265D0032AAFA /* libz.1.2.8.tbd */; };
+		3FE93D971F47458B0032AAFA /* conv_kernels.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FE93D961F47458B0032AAFA /* conv_kernels.cpp */; };
+		3FE93D9A1F4771720032AAFA /* triangulation_filter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FE93D991F4771720032AAFA /* triangulation_filter.cpp */; };
+		3FE93D9F1F4777C80032AAFA /* corner_detector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FE93D9E1F4777C80032AAFA /* corner_detector.cpp */; };
+		3FE93DA51F4BC70A0032AAFA /* convex_hull3d.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FE93DA41F4BC70A0032AAFA /* convex_hull3d.cpp */; };
 		AD03D2401E14471700916C6F /* image.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD03D23B1E14471700916C6F /* image.cpp */; };
 		AD03D2411E14471700916C6F /* image_pixel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD03D23E1E14471700916C6F /* image_pixel.cpp */; };
 		AD5D180E1DE7FA3200E1D10C /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AD5D180D1DE7FA3200E1D10C /* main.cpp */; };
-		AD5D18201DE807CF00E1D10C /* libpng16.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AD5D181F1DE807CF00E1D10C /* libpng16.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,13 +32,39 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3F0D09011FF53E3F00148B9D /* delaunay_triangulation.hxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = delaunay_triangulation.hxx; path = ../../../src/algorithms/delaunay_triangulation.hxx; sourceTree = "<group>"; };
+		3F0D09021FF53E3F00148B9D /* delaunay_triangulation.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = delaunay_triangulation.hpp; path = ../../../src/algorithms/delaunay_triangulation.hpp; sourceTree = "<group>"; };
+		3F3344AE200141AC002FE2AA /* edge.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = edge.hpp; path = ../../../src/utility/edge.hpp; sourceTree = "<group>"; };
+		3F3344AF200143C4002FE2AA /* triangle2.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = triangle2.hpp; path = ../../../src/utility/triangle2.hpp; sourceTree = "<group>"; };
+		3F3344B0200151FD002FE2AA /* mat.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = mat.cpp; path = ../../../src/utility/mat.cpp; sourceTree = "<group>"; };
+		3F3344B1200151FD002FE2AA /* math_operators.hxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = math_operators.hxx; path = ../../../src/utility/math_operators.hxx; sourceTree = "<group>"; };
+		3F3344B2200151FD002FE2AA /* mat.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = mat.hpp; path = ../../../src/utility/mat.hpp; sourceTree = "<group>"; };
+		3F3344B3200151FD002FE2AA /* math_operators.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = math_operators.hpp; path = ../../../src/utility/math_operators.hpp; sourceTree = "<group>"; };
+		3F3344B4200151FD002FE2AA /* math_bundle.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = math_bundle.hpp; path = ../../../src/utility/math_bundle.hpp; sourceTree = "<group>"; };
+		3F3344B5200151FD002FE2AA /* mat.hxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = mat.hxx; path = ../../../src/utility/mat.hxx; sourceTree = "<group>"; };
+		3F3344B6200151FD002FE2AA /* vec.hxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = vec.hxx; path = ../../../src/utility/vec.hxx; sourceTree = "<group>"; };
+		3F3344B7200151FD002FE2AA /* vec3.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = vec3.hpp; path = ../../../src/utility/vec3.hpp; sourceTree = "<group>"; };
+		3F3344B8200151FD002FE2AA /* vec3.hxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = vec3.hxx; path = ../../../src/utility/vec3.hxx; sourceTree = "<group>"; };
+		3F3344B9200151FE002FE2AA /* vec.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = vec.hpp; path = ../../../src/utility/vec.hpp; sourceTree = "<group>"; };
+		3FE93D8D1F4725CE0032AAFA /* libpng16.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpng16.a; path = ../../../../../../../../usr/local/lib/libpng16.a; sourceTree = "<group>"; };
+		3FE93D8F1F47265D0032AAFA /* libz.1.2.8.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.2.8.tbd; path = usr/lib/libz.1.2.8.tbd; sourceTree = SDKROOT; };
+		3FE93D931F4735270032AAFA /* convolution.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = convolution.hpp; path = ../../../src/filter/convolution.hpp; sourceTree = "<group>"; };
+		3FE93D951F4743D40032AAFA /* conv_kernels.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = conv_kernels.hpp; path = ../../../src/filter/conv_kernels.hpp; sourceTree = "<group>"; };
+		3FE93D961F47458B0032AAFA /* conv_kernels.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = conv_kernels.cpp; path = ../../../src/filter/conv_kernels.cpp; sourceTree = "<group>"; };
+		3FE93D981F47715A0032AAFA /* triangulation_filter.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = triangulation_filter.hpp; path = ../../../src/filter/triangulation_filter.hpp; sourceTree = "<group>"; };
+		3FE93D991F4771720032AAFA /* triangulation_filter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = triangulation_filter.cpp; path = ../../../src/filter/triangulation_filter.cpp; sourceTree = "<group>"; };
+		3FE93D9D1F47772D0032AAFA /* corner_detector.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = corner_detector.hpp; path = ../../../src/corner_detector/corner_detector.hpp; sourceTree = "<group>"; };
+		3FE93D9E1F4777C80032AAFA /* corner_detector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = corner_detector.cpp; path = ../../../src/corner_detector/corner_detector.cpp; sourceTree = "<group>"; };
+		3FE93DA01F47838E0032AAFA /* convex_hull3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = convex_hull3D.h; path = ../../../src/algorithms/convex_hull3D.h; sourceTree = "<group>"; };
+		3FE93DA11F49382B0032AAFA /* convex_hull3d.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = convex_hull3d.hpp; path = ../../../src/algorithms/convex_hull3d.hpp; sourceTree = "<group>"; };
+		3FE93DA31F4B1FCD0032AAFA /* triangle.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = triangle.hpp; path = ../../../src/utility/triangle.hpp; sourceTree = "<group>"; };
+		3FE93DA41F4BC70A0032AAFA /* convex_hull3d.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = convex_hull3d.cpp; path = ../../../src/algorithms/convex_hull3d.cpp; sourceTree = "<group>"; };
 		AD03D23B1E14471700916C6F /* image.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = image.cpp; sourceTree = "<group>"; };
 		AD03D23C1E14471700916C6F /* image.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = image.hpp; sourceTree = "<group>"; };
 		AD03D23E1E14471700916C6F /* image_pixel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = image_pixel.cpp; sourceTree = "<group>"; };
 		AD03D23F1E14471700916C6F /* image_pixel.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = image_pixel.hpp; sourceTree = "<group>"; };
 		AD5D180A1DE7FA3200E1D10C /* ImageCpp */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ImageCpp; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD5D180D1DE7FA3200E1D10C /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		AD5D181F1DE807CF00E1D10C /* libpng16.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpng16.a; path = ../../../../../../usr/local/lib/libpng16.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,13 +72,85 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AD5D18201DE807CF00E1D10C /* libpng16.a in Frameworks */,
+				3FE93D901F47265D0032AAFA /* libz.1.2.8.tbd in Frameworks */,
+				3FE93D8E1F4725CE0032AAFA /* libpng16.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3FE93D8C1F4725CE0032AAFA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3FE93D8F1F47265D0032AAFA /* libz.1.2.8.tbd */,
+				3FE93D8D1F4725CE0032AAFA /* libpng16.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3FE93D911F4730D70032AAFA /* filter */ = {
+			isa = PBXGroup;
+			children = (
+				3FE93D951F4743D40032AAFA /* conv_kernels.hpp */,
+				3FE93D931F4735270032AAFA /* convolution.hpp */,
+				3FE93D961F47458B0032AAFA /* conv_kernels.cpp */,
+				3FE93D981F47715A0032AAFA /* triangulation_filter.hpp */,
+				3FE93D991F4771720032AAFA /* triangulation_filter.cpp */,
+			);
+			name = filter;
+			sourceTree = "<group>";
+		};
+		3FE93D921F4731B50032AAFA /* algorithms */ = {
+			isa = PBXGroup;
+			children = (
+				3FE93DA01F47838E0032AAFA /* convex_hull3D.h */,
+				3FE93DA11F49382B0032AAFA /* convex_hull3d.hpp */,
+				3FE93DA41F4BC70A0032AAFA /* convex_hull3d.cpp */,
+				3F0D09011FF53E3F00148B9D /* delaunay_triangulation.hxx */,
+				3F0D09021FF53E3F00148B9D /* delaunay_triangulation.hpp */,
+			);
+			name = algorithms;
+			sourceTree = "<group>";
+		};
+		3FE93D9B1F4776E40032AAFA /* image_processing */ = {
+			isa = PBXGroup;
+			children = (
+				3FE93D9C1F4776EF0032AAFA /* corner_detector */,
+				3FE93D911F4730D70032AAFA /* filter */,
+			);
+			name = image_processing;
+			sourceTree = "<group>";
+		};
+		3FE93D9C1F4776EF0032AAFA /* corner_detector */ = {
+			isa = PBXGroup;
+			children = (
+				3FE93D9D1F47772D0032AAFA /* corner_detector.hpp */,
+				3FE93D9E1F4777C80032AAFA /* corner_detector.cpp */,
+			);
+			name = corner_detector;
+			sourceTree = "<group>";
+		};
+		3FE93DA21F4B1FA70032AAFA /* utility */ = {
+			isa = PBXGroup;
+			children = (
+				3F3344B0200151FD002FE2AA /* mat.cpp */,
+				3F3344B2200151FD002FE2AA /* mat.hpp */,
+				3F3344B5200151FD002FE2AA /* mat.hxx */,
+				3F3344B4200151FD002FE2AA /* math_bundle.hpp */,
+				3F3344B3200151FD002FE2AA /* math_operators.hpp */,
+				3F3344B1200151FD002FE2AA /* math_operators.hxx */,
+				3F3344B9200151FE002FE2AA /* vec.hpp */,
+				3F3344B6200151FD002FE2AA /* vec.hxx */,
+				3F3344B7200151FD002FE2AA /* vec3.hpp */,
+				3F3344B8200151FD002FE2AA /* vec3.hxx */,
+				3FE93DA31F4B1FCD0032AAFA /* triangle.hpp */,
+				3F3344AE200141AC002FE2AA /* edge.hpp */,
+				3F3344AF200143C4002FE2AA /* triangle2.hpp */,
+			);
+			name = utility;
+			sourceTree = "<group>";
+		};
 		AD03D23A1E14471700916C6F /* image */ = {
 			isa = PBXGroup;
 			children = (
@@ -72,7 +176,7 @@
 			children = (
 				AD5D180C1DE7FA3200E1D10C /* ImageCpp */,
 				AD5D180B1DE7FA3200E1D10C /* Products */,
-				AD5D181E1DE807CF00E1D10C /* Frameworks */,
+				3FE93D8C1F4725CE0032AAFA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -87,19 +191,14 @@
 		AD5D180C1DE7FA3200E1D10C /* ImageCpp */ = {
 			isa = PBXGroup;
 			children = (
+				3FE93DA21F4B1FA70032AAFA /* utility */,
+				3FE93D9B1F4776E40032AAFA /* image_processing */,
+				3FE93D921F4731B50032AAFA /* algorithms */,
 				AD03D23A1E14471700916C6F /* image */,
 				AD03D23D1E14471700916C6F /* pixel */,
 				AD5D180D1DE7FA3200E1D10C /* main.cpp */,
 			);
 			path = ImageCpp;
-			sourceTree = "<group>";
-		};
-		AD5D181E1DE807CF00E1D10C /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				AD5D181F1DE807CF00E1D10C /* libpng16.a */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -161,7 +260,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD5D180E1DE7FA3200E1D10C /* main.cpp in Sources */,
+				3FE93D9A1F4771720032AAFA /* triangulation_filter.cpp in Sources */,
+				3F3344BA200151FE002FE2AA /* mat.cpp in Sources */,
 				AD03D2401E14471700916C6F /* image.cpp in Sources */,
+				3FE93D971F47458B0032AAFA /* conv_kernels.cpp in Sources */,
+				3FE93DA51F4BC70A0032AAFA /* convex_hull3d.cpp in Sources */,
+				3FE93D9F1F4777C80032AAFA /* corner_detector.cpp in Sources */,
 				AD03D2411E14471700916C6F /* image_pixel.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

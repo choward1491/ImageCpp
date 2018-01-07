@@ -7,30 +7,41 @@
 //
 
 #include "image.hpp"
+
+// standard libs
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 #include <stdarg.h>
+#include <stdint.h>
+#include <cmath>
+
+// PNG headers
 #include <png.h>
 #include <pngconf.h>
-#include <stdint.h>
+
+// JPEG headers
+#include <jpeglib.h>
+#include <jconfig.h>
+#include <jerror.h>
+#include <jmorecfg.h>
 
 namespace img {
     
     image::image():h(0),w(0),pixels(0){
         
     }
-    image::image(int rows_, int cols_, pixel p ):pixels(rows_*cols_,p){
-        h = rows_; w = cols_;
+    image::image(int width, int height, pixel p ):pixels(width*height,p){
+        h = height; w = width;
     }
     
     image::image( const std::string & load_img ) {
         loadPNG(load_img);
     }
     
-    void image::setDims( int rows_, int cols_ ){
-        h = rows_; w = cols_;
+    void image::setDims( int width, int height ){
+        h = height; w = width;
         pixels.resize(h*w);
     }
     int image::height() const{
@@ -40,17 +51,17 @@ namespace img {
         return w;
     }
     
-    pixel & image::operator()(int r, int c) {
-        return pixels[c + r*w];
+    pixel & image::operator()(int x, int y) {
+        return pixels[x + y*w];
     }
-    const pixel & image::operator()(int r, int c) const {
-        return pixels[c + r*w];
+    const pixel & image::operator()(int x, int y) const {
+        return pixels[x + y*w];
     }
-    pixel & image::pixelAt(int r, int c) {
-        return pixels[c + r*w];
+    pixel & image::pixelAt(int x, int y) {
+        return pixels[x + y*w];
     }
-    const pixel & image::pixelAt(int r, int c) const {
-        return pixels[c + r*w];
+    const pixel & image::pixelAt(int x, int y) const {
+        return pixels[x + y*w];
     }
     
     void image::savePNG( const std::string & filename, Depth d  ) const {
@@ -60,6 +71,22 @@ namespace img {
         read_png_file(filename.c_str());
     }
     
+    void image::elem_mult( const image & img, image & result ) const {
+        if( w != img.width() || h != img.height() ){ return; }
+        result.setDims(w,h);
+        
+        for(int i = 0; i < w; ++i){
+            for(int j = 0; j < h; ++j){
+                result(i,j) = this->operator()(i,j)*img(i,j);
+            }
+        }
+    }
+    
+    void image::convert2grayscale() {
+        for(unsigned int i = 0; i < pixels.size(); ++i){
+            pixels[i].toGray();
+        }
+    }
     
     void image::read_png_file( const char *filename) {
         png_byte color_type;
@@ -164,7 +191,7 @@ namespace img {
         fclose(fp);
     }
     
-    void split( uint16_t n, uint8_t & n1, uint8_t & n2 );
+    void split( uint16_t n, uint8_t * n1, uint8_t * n2 );
     
     void image::write_png_file( const char *filename, const Depth & depth ) const {
         png_bytep *row_pointers;
@@ -207,7 +234,7 @@ namespace img {
             png_bytep row = row_pointers[y];
             for(int x = 0; x < w; x++ ){
                 png_bytep px = &(row[x * span]);
-                const pixel & p = (*this)(y,x);
+                const pixel & p = (*this)(x,y);
                 uint8_t n1, n2;
                 if( depth == _8bit ){
                     px[0] = static_cast<uint8_t>( p.r()*fmax8);
@@ -215,13 +242,17 @@ namespace img {
                     px[2] = static_cast<uint8_t>( p.b()*fmax8);
                     px[3] = static_cast<uint8_t>( p.a()*fmax8);
                 }else{
-                    split(static_cast<uint16_t>( p.r()*fmax16), n1, n2);
+                    uint16_t color[4] = {static_cast<uint16_t>( p.r()*fmax16),
+                                         static_cast<uint16_t>( p.g()*fmax16),
+                                         static_cast<uint16_t>( p.b()*fmax16),
+                                         static_cast<uint16_t>( p.a()*fmax16)};
+                    split(color[0], &n1, &n2);
                     px[0] = n1; px[1] = n2;
-                    split(static_cast<uint16_t>( p.g()*fmax16), n1, n2);
+                    split(color[1], &n1, &n2);
                     px[2] = n1; px[3] = n2;
-                    split(static_cast<uint16_t>( p.b()*fmax16), n1, n2);
+                    split(color[2], &n1, &n2);
                     px[4] = n1; px[5] = n2;
-                    split(static_cast<uint16_t>( p.a()*fmax16), n1, n2);
+                    split(color[3], &n1, &n2);
                     px[6] = n1; px[7] = n2;
                 }
             }
@@ -238,9 +269,9 @@ namespace img {
         fclose(fp);
     }
     
-    void split( uint16_t n, uint8_t & n1, uint8_t & n2 ){
-        n1 = n | 0xFF00;
-        n2 = n | 0x00FF;
+    void split( uint16_t n, uint8_t * n1, uint8_t * n2 ){
+        *n1 = (n & 0xFF00) >> 8;
+        *n2 = n & 0x00FF;
     }
     
     //std::vector<pixel> pixels;
