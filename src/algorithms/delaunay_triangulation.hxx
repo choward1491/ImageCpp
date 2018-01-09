@@ -48,126 +48,6 @@ namespace delaunay {
         
     }
     
-    /*
-    template<typename num_type>
-    void triangulation(const ::std::vector<num_type> & x,
-                       const ::std::vector<num_type> & y,
-                       std::vector<Triangle<num_type>> & triangles,
-                       std::pair<int,int> boxdims)
-    {
-        typedef Triangle<num_type> tri_t;
-        
-        // get bounds for the x and y vertices
-        auto xbnds = getMinMax(x), ybnds = getMinMax(y);
-        
-        // init boxes for spatial hashing
-        std::vector<std::set<int>> hashtable(boxdims.first*boxdims.second);
-        
-        // clear triangle vector
-        triangles.clear();
-        
-        // will speed up the below algorithms later
-        // make copies of coordinates
-        size_t size0 = x.size();
-        std::vector<num_type> xc;
-        std::vector<num_type> yc;
-        
-        // compute initial bounding triangle vertices
-        const num_type radius = 5.0;
-        num_type dx = (xbnds.second-xbnds.first), dy = (ybnds.second-ybnds.first);
-        num_type v1[2] = {xbnds.first + dx*0.5*(1.0 + radius*sqrt(3.0)), ybnds.first + dy*0.5*(1.0 - radius) };
-        num_type v2[2] = {xbnds.first + dx*(0.5), ybnds.first + dy*(radius + 0.5) };
-        num_type v3[2] = {xbnds.first + dx*0.5*(1.0 - radius*sqrt(3.0)), ybnds.first + dy*0.5*(1.0 - radius) };
-        xc.push_back(v1[0]); yc.push_back(v1[1]);
-        xc.push_back(v2[0]); yc.push_back(v2[1]);
-        xc.push_back(v3[0]); yc.push_back(v3[1]);
-        
-        for(int i = 0; i < size0; ++i){
-            xc.push_back(x[i]);
-            yc.push_back(y[i]);
-        }
-        
-        // construct initial triangle
-        int id_tracker = 0;
-        std::vector<std::set<int>> vert_tri_map(xc.size());
-        int mini[3] = {0};
-        num_type minv[3] = {0};
-        
-        { // create a new triangle
-            tri_t t0;
-            t0.vertices[0]  = 0;
-            t0.vertices[1]  = 1;
-            t0.vertices[2]  = 2;
-            t0.id           = id_tracker++;
-            triangles.push_back(t0);
-            
-            // add to vertex-to-triangle map
-            for(int k = 0; k < 3; ++k){
-                vert_tri_map[t0.vertices[k]].insert(t0.id);
-            }
-        }
-        
-        for(int i = 3; i < xc.size(); ++i){
-            int tid = 0;
-            printf("Work with coord(%i)\n",i);
-            for(int k = 0; k < triangles.size(); ++k){
-                if( triangles[k].pointWithinTriangle( xc[i], yc[i], &xc[0], &yc[0], xc.size() ) ){
-                    tid = k; break;
-                }
-            }
-                
-            // break the triangle into pieces and remove the triangle that is intersected
-            tri_t tris[3];
-            for(int k = 0; k < 3; ++k){
-                tris[k].vertices[0] = triangles[tid].vertices[k%3];
-                tris[k].vertices[1] = triangles[tid].vertices[(k+1)%3];
-                tris[k].vertices[2] = i;
-                
-                // erase connectivity data for old triangle
-                vert_tri_map[triangles[tid].vertices[k]].erase(tid);
-            }
-            
-            // set the triangle data
-            tris[0].id = tid;
-            triangles[tid] = tris[0];
-            tris[1].id = id_tracker++; triangles.push_back(tris[1]);
-            tris[2].id = id_tracker++; triangles.push_back(tris[2]);
-            printf("printing triangles...\n");
-            tris[0].print(&xc[0],&yc[0]);
-            tris[1].print(&xc[0],&yc[0]);
-            tris[2].print(&xc[0],&yc[0]);
-            printf("...done printing\n\n");
-            // add to vertex-to-triangle map
-            for(int k = 0; k < 3; ++k){
-                vert_tri_map[tris[k].vertices[0]].insert(tris[k].id);
-                vert_tri_map[tris[k].vertices[1]].insert(tris[k].id);
-                vert_tri_map[tris[k].vertices[2]].insert(tris[k].id);
-            }
-                
-        }// end for loop
-        
-        // print all triangles
-        for(auto i = triangles.begin(); i != triangles.end(); ++i){
-            tri_t& tri = *i;
-            tri.print(&xc[0], &yc[0]);
-        }
-        
-        // remove triangles that are not usable
-        auto it=triangles.begin();
-        while (it != triangles.end()){
-            tri_t& tri = *it;
-            if ( tri.hasVertexID(0) || tri.hasVertexID(1) || tri.hasVertexID(2) || tri.area(&xc[0], &yc[0]) < 1e-6 ){
-                it = triangles.erase(it);  // alternatively, i = items.erase(i);
-            }else{
-                tri.vertices[0] -= 3;
-                tri.vertices[1] -= 3;
-                tri.vertices[2] -= 3;
-                ++it;
-            }
-        }// end while loop
-        
-    }*/
-    
     template<typename num_type>
     void triangulation(const ::std::vector<num_type> & x,
                        const ::std::vector<num_type> & y,
@@ -254,15 +134,13 @@ namespace delaunay {
             }
         }
         
-        //printf("Initial triangle\n");
-        //internal_tris[0].print(xv,yv);
-        
         for(int i = 3; i < xc.size(); ++i){
             int tid = 0;
             
             for(int k = 0; k < internal_tris.size(); ++k){
                 if( internal_use[k] && internal_tris[k].pointWithinTriangle( xc[i], yc[i], xv, yv, xc.size() ) ){ tid = k; break; }
             }
+             
             
             // break the triangle into pieces and remove the triangle that is intersected
             // create the new edges first
@@ -329,16 +207,6 @@ namespace delaunay {
                 emap[edges[k].id] = edges[k];
             }
             
-            /*for(int k = 0; k < 3; ++k){
-                tris[k].setEdgeMap(emap);
-                tris[k].print(xv,yv);
-            }*/
-            
-            /*
-            for(int k = 0; k < internal_tris.size(); k++){
-                if( internal_use[k] ){ internal_tris[k].print(xv,yv); }
-            }
-             */
             
             // check that things are legal
             legalizeEdge<num_type>(i, internal_tris[tid].edges[0],
@@ -347,13 +215,6 @@ namespace delaunay {
                          xc,yc,emap,internal_tris );
             legalizeEdge<num_type>(i, internal_tris[tid].edges[2],
                          xc,yc,emap,internal_tris );
-            /*
-            printf("p = (%lf, %lf) - after\n",xv[i],yv[i]);
-            for(int k = 0; k < internal_tris.size(); k++){
-                if( internal_use[k] ){ internal_tris[k].print(xv,yv); }
-            }
-            printf("complete \n\n");
-             */
             
         }// end for loop
         

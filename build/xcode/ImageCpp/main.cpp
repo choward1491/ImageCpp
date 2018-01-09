@@ -11,10 +11,10 @@
 
 int main(int argc, const char * argv[]) {
     
-    img::image pic("/Users/cjh/Downloads/rose.png");
+    img::image pic("/Users/cjh/Downloads/abstract1.png");
     img::image tri_filter;
-    filter::triangulation(pic, tri_filter, 20000);
-    tri_filter.savePNG("/Users/cjh/Documents/rose_new2.png", img::_16bit);
+    filter::triangulation(pic, tri_filter, 200);
+    tri_filter.savePNG("/Users/cjh/Documents/abstract1_new.png", img::_16bit);
     
     return 0;
 }
