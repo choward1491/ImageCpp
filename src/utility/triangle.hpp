@@ -11,6 +11,7 @@
 
 #include <cmath>
 #include <iostream>
+#include "../image/image.hpp"
 
 /*=======================================
  This is a triangle class for use in the
@@ -30,6 +31,7 @@ public:
     // vertices of this triangle
     unsigned int vertices[3];
     
+    int xi[3], yi[3], w, h;
     double xv[3], yv[3], zv[3];
     double colors[3][3];
     
@@ -59,6 +61,16 @@ public:
         return vertices[0] == id || vertices[1] == id || vertices[2] == id;
     }
     
+    void set_int_coords(int x[3], int y[3], int width, int height){
+        w = width; h = height;
+        int t = std::min(w,h)/2;
+        for(int i = 0; i < 3; ++i){
+            xi[i] = x[i];
+            yi[i] = y[i];
+            xv[i] = (xi[i] - w/2)/static_cast<double>(t);
+            yv[i] = (yi[i] - h/2)/static_cast<double>(t);
+        }
+    }
     
     /*=======================================
      method to generate the normal for the triangle
@@ -85,6 +97,31 @@ public:
         // find difference vectors
         T u[] = { x[i2] - x[i1], y[i2] - y[i1], z[i2] - z[i1] };
         T v[] = { x[i3] - x[i1], y[i3] - y[i1], z[i3] - z[i1] };
+        
+        T N[3];
+        N[0] = u[1]*v[2] - u[2]*v[1];
+        N[1] = u[2]*v[0] - u[0]*v[2];
+        N[2] = u[0]*v[1] - u[1]*v[0];
+        T mag = sqrt( N[0]*N[0] + N[1]*N[1] + N[2]*N[2] );
+        
+        normal[0] = N[0] / mag;
+        normal[1] = N[1] / mag;
+        normal[2] = N[2] / mag;
+    }
+    
+    void makeNormal( const T *z, int num_pts ){
+        
+        int i1 = vertices[0];
+        int i2 = vertices[1];
+        int i3 = vertices[2];
+        
+        zv[0] = z[i1];
+        zv[1] = z[i2];
+        zv[2] = z[i3];
+        
+        // find difference vectors
+        T u[] = { xv[1] - xv[0], yv[1] - yv[0], zv[1] - zv[0] };
+        T v[] = { xv[2] - xv[0], yv[2] - yv[0], zv[2] - zv[0] };
         
         T N[3];
         N[0] = u[1]*v[2] - u[2]*v[1];
@@ -213,6 +250,45 @@ public:
         cross[2] = x1[0]*x2[1] - x1[1]*x2[0];
         
         return 0.5*std::sqrt(cross[0]*cross[0] + cross[1]*cross[1] + cross[2]*cross[2]);
+    }
+    
+    void fill_in_image(img::image& I){
+        // specify the bounds of region
+        int min_x = std::min(xi[0],std::min(xi[1],xi[2]));
+        int max_x = std::max(xi[0],std::max(xi[1],xi[2]));
+        int min_y = std::min(yi[0],std::min(yi[1],yi[2]));
+        int max_y = std::max(yi[0],std::max(yi[1],yi[2]));
+        double t  = std::min(w,h)*0.5;
+        
+        // loop over sub rectangle that triangle is in
+        for(int i = min_x; i <= max_x; ++i){
+            for(int j = min_y; j <= max_y; ++j){
+                
+                if( i >= w || j >= h ){ continue; }
+                
+                // loop over sub-coordinates of pixel box
+                // to see if any of them fall within the
+                // triangle. if >=2 do, then we can
+                // fill this pixel in.
+                int counter = 0;
+                for(int s1 = -1; s1 <= 1; s1 += 2){
+                    for(int s2 = -1; s2 <= 1; s2 += 2){
+                        double xt = (i + s1*0.5 - w/2)/t;
+                        double yt = (j + s2*0.5 - h/2)/t;
+                        counter += pointWithinTriangle2(xt, yt);
+                    }
+                }
+                
+                if( counter ){
+                    double xt = (i - w/2)/t;
+                    double yt = (j - h/2)/t;
+                    auto& pixel = I.pixelAt(i, j);
+                    color_interp(xt, yt, &pixel[0]);
+                    pixel.a() = 1.0;
+                }
+                
+            }// end j loop
+        }// end i loop
     }
     
     

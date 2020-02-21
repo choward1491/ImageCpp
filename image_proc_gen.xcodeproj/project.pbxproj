@@ -18,7 +18,6 @@
 		3F86538523FF5DE300292FF8 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F86538423FF5DE300292FF8 /* main.cpp */; };
 		3F86538723FF5E4700292FF8 /* libomp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F86538623FF5E4700292FF8 /* libomp.a */; };
 		3F86538B23FF5F1200292FF8 /* triangle_mesh_art.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F86538923FF5F1200292FF8 /* triangle_mesh_art.cpp */; };
-		3F86538D23FF635500292FF8 /* libjpeg.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F86538C23FF635500292FF8 /* libjpeg.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -77,7 +76,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F86538D23FF635500292FF8 /* libjpeg.a in Frameworks */,
 				3F86538723FF5E4700292FF8 /* libomp.a in Frameworks */,
 				3F86538323FF5D5F00292FF8 /* libpng16.a in Frameworks */,
 			);
