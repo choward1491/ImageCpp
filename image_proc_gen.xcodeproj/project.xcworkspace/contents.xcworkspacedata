@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:ImageCpp.xcodeproj">
+      location = "self:image_proc_gen.xcodeproj">
    </FileRef>
 </Workspace>

@@ -22,10 +22,10 @@
 #include <pngconf.h>
 
 // JPEG headers
-#include <jpeglib.h>
-#include <jconfig.h>
-#include <jerror.h>
-#include <jmorecfg.h>
+//#include <jpeglib.h>
+//#include <jconfig.h>
+//#include <jerror.h>
+//#include <jmorecfg.h>
 
 namespace img {
     

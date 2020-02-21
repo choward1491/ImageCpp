@@ -1,0 +1,446 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3F86537A23FF5D3000292FF8 /* convex_hull3d.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F86535823FF5D3000292FF8 /* convex_hull3d.cpp */; };
+		3F86537B23FF5D3000292FF8 /* image.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F86535E23FF5D3000292FF8 /* image.cpp */; };
+		3F86537C23FF5D3000292FF8 /* image_pixel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F86536223FF5D3000292FF8 /* image_pixel.cpp */; };
+		3F86537D23FF5D3000292FF8 /* corner_detector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F86536523FF5D3000292FF8 /* corner_detector.cpp */; };
+		3F86537E23FF5D3000292FF8 /* conv_kernels.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F86536723FF5D3000292FF8 /* conv_kernels.cpp */; };
+		3F86537F23FF5D3000292FF8 /* triangulation_filter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F86536923FF5D3000292FF8 /* triangulation_filter.cpp */; };
+		3F86538023FF5D3000292FF8 /* mat.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F86537623FF5D3000292FF8 /* mat.cpp */; };
+		3F86538323FF5D5F00292FF8 /* libpng16.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F86538223FF5D5F00292FF8 /* libpng16.a */; };
+		3F86538523FF5DE300292FF8 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F86538423FF5DE300292FF8 /* main.cpp */; };
+		3F86538723FF5E4700292FF8 /* libomp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F86538623FF5E4700292FF8 /* libomp.a */; };
+		3F86538B23FF5F1200292FF8 /* triangle_mesh_art.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F86538923FF5F1200292FF8 /* triangle_mesh_art.cpp */; };
+		3F86538D23FF635500292FF8 /* libjpeg.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F86538C23FF635500292FF8 /* libjpeg.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3F86534A23FF5CFF00292FF8 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		3F86534C23FF5CFF00292FF8 /* image_proc_gen */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = image_proc_gen; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F86535823FF5D3000292FF8 /* convex_hull3d.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = convex_hull3d.cpp; sourceTree = "<group>"; };
+		3F86535923FF5D3000292FF8 /* delaunay_triangulation.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = delaunay_triangulation.hpp; sourceTree = "<group>"; };
+		3F86535A23FF5D3000292FF8 /* delaunay_triangulation.hxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = delaunay_triangulation.hxx; sourceTree = "<group>"; };
+		3F86535B23FF5D3000292FF8 /* convex_hull3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = convex_hull3D.h; sourceTree = "<group>"; };
+		3F86535C23FF5D3000292FF8 /* convex_hull3d.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = convex_hull3d.hpp; sourceTree = "<group>"; };
+		3F86535E23FF5D3000292FF8 /* image.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = image.cpp; sourceTree = "<group>"; };
+		3F86535F23FF5D3000292FF8 /* image.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = image.hpp; sourceTree = "<group>"; };
+		3F86536123FF5D3000292FF8 /* image_pixel.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = image_pixel.hpp; sourceTree = "<group>"; };
+		3F86536223FF5D3000292FF8 /* image_pixel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = image_pixel.cpp; sourceTree = "<group>"; };
+		3F86536423FF5D3000292FF8 /* corner_detector.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = corner_detector.hpp; sourceTree = "<group>"; };
+		3F86536523FF5D3000292FF8 /* corner_detector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = corner_detector.cpp; sourceTree = "<group>"; };
+		3F86536723FF5D3000292FF8 /* conv_kernels.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = conv_kernels.cpp; sourceTree = "<group>"; };
+		3F86536823FF5D3000292FF8 /* convolution.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = convolution.hpp; sourceTree = "<group>"; };
+		3F86536923FF5D3000292FF8 /* triangulation_filter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = triangulation_filter.cpp; sourceTree = "<group>"; };
+		3F86536A23FF5D3000292FF8 /* triangulation_filter.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = triangulation_filter.hpp; sourceTree = "<group>"; };
+		3F86536B23FF5D3000292FF8 /* conv_kernels.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = conv_kernels.hpp; sourceTree = "<group>"; };
+		3F86536D23FF5D3000292FF8 /* math_operators.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = math_operators.hpp; sourceTree = "<group>"; };
+		3F86536E23FF5D3000292FF8 /* vec.hxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = vec.hxx; sourceTree = "<group>"; };
+		3F86536F23FF5D3000292FF8 /* vec3.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = vec3.hpp; sourceTree = "<group>"; };
+		3F86537023FF5D3000292FF8 /* edge.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = edge.hpp; sourceTree = "<group>"; };
+		3F86537123FF5D3000292FF8 /* triangle.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = triangle.hpp; sourceTree = "<group>"; };
+		3F86537223FF5D3000292FF8 /* mat.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = mat.hpp; sourceTree = "<group>"; };
+		3F86537323FF5D3000292FF8 /* mat.hxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = mat.hxx; sourceTree = "<group>"; };
+		3F86537423FF5D3000292FF8 /* triangle2.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = triangle2.hpp; sourceTree = "<group>"; };
+		3F86537523FF5D3000292FF8 /* math_bundle.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = math_bundle.hpp; sourceTree = "<group>"; };
+		3F86537623FF5D3000292FF8 /* mat.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mat.cpp; sourceTree = "<group>"; };
+		3F86537723FF5D3000292FF8 /* vec3.hxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = vec3.hxx; sourceTree = "<group>"; };
+		3F86537823FF5D3000292FF8 /* vec.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = vec.hpp; sourceTree = "<group>"; };
+		3F86537923FF5D3000292FF8 /* math_operators.hxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = math_operators.hxx; sourceTree = "<group>"; };
+		3F86538223FF5D5F00292FF8 /* libpng16.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpng16.a; path = ../../../../../../usr/local/Cellar/libpng/1.6.37/lib/libpng16.a; sourceTree = "<group>"; };
+		3F86538423FF5DE300292FF8 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		3F86538623FF5E4700292FF8 /* libomp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libomp.a; path = ../../../../../../usr/local/Cellar/libomp/9.0.0/lib/libomp.a; sourceTree = "<group>"; };
+		3F86538923FF5F1200292FF8 /* triangle_mesh_art.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = triangle_mesh_art.cpp; sourceTree = "<group>"; };
+		3F86538A23FF5F1200292FF8 /* triangle_mesh_art.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = triangle_mesh_art.hpp; sourceTree = "<group>"; };
+		3F86538C23FF635500292FF8 /* libjpeg.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libjpeg.a; path = ../../../../../../usr/local/Cellar/jpeg/9d/lib/libjpeg.a; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3F86534923FF5CFF00292FF8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F86538D23FF635500292FF8 /* libjpeg.a in Frameworks */,
+				3F86538723FF5E4700292FF8 /* libomp.a in Frameworks */,
+				3F86538323FF5D5F00292FF8 /* libpng16.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3F86534323FF5CFF00292FF8 = {
+			isa = PBXGroup;
+			children = (
+				3F86535623FF5D3000292FF8 /* src */,
+				3F86534D23FF5CFF00292FF8 /* Products */,
+				3F86538123FF5D5F00292FF8 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		3F86534D23FF5CFF00292FF8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3F86534C23FF5CFF00292FF8 /* image_proc_gen */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3F86535623FF5D3000292FF8 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				3F86538423FF5DE300292FF8 /* main.cpp */,
+				3F86538823FF5E8D00292FF8 /* generation */,
+				3F86535723FF5D3000292FF8 /* algorithms */,
+				3F86535D23FF5D3000292FF8 /* image */,
+				3F86536023FF5D3000292FF8 /* pixel */,
+				3F86536323FF5D3000292FF8 /* corner_detector */,
+				3F86536623FF5D3000292FF8 /* filter */,
+				3F86536C23FF5D3000292FF8 /* utility */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		3F86535723FF5D3000292FF8 /* algorithms */ = {
+			isa = PBXGroup;
+			children = (
+				3F86535823FF5D3000292FF8 /* convex_hull3d.cpp */,
+				3F86535923FF5D3000292FF8 /* delaunay_triangulation.hpp */,
+				3F86535A23FF5D3000292FF8 /* delaunay_triangulation.hxx */,
+				3F86535B23FF5D3000292FF8 /* convex_hull3D.h */,
+				3F86535C23FF5D3000292FF8 /* convex_hull3d.hpp */,
+			);
+			path = algorithms;
+			sourceTree = "<group>";
+		};
+		3F86535D23FF5D3000292FF8 /* image */ = {
+			isa = PBXGroup;
+			children = (
+				3F86535E23FF5D3000292FF8 /* image.cpp */,
+				3F86535F23FF5D3000292FF8 /* image.hpp */,
+			);
+			path = image;
+			sourceTree = "<group>";
+		};
+		3F86536023FF5D3000292FF8 /* pixel */ = {
+			isa = PBXGroup;
+			children = (
+				3F86536123FF5D3000292FF8 /* image_pixel.hpp */,
+				3F86536223FF5D3000292FF8 /* image_pixel.cpp */,
+			);
+			path = pixel;
+			sourceTree = "<group>";
+		};
+		3F86536323FF5D3000292FF8 /* corner_detector */ = {
+			isa = PBXGroup;
+			children = (
+				3F86536423FF5D3000292FF8 /* corner_detector.hpp */,
+				3F86536523FF5D3000292FF8 /* corner_detector.cpp */,
+			);
+			path = corner_detector;
+			sourceTree = "<group>";
+		};
+		3F86536623FF5D3000292FF8 /* filter */ = {
+			isa = PBXGroup;
+			children = (
+				3F86536723FF5D3000292FF8 /* conv_kernels.cpp */,
+				3F86536823FF5D3000292FF8 /* convolution.hpp */,
+				3F86536923FF5D3000292FF8 /* triangulation_filter.cpp */,
+				3F86536A23FF5D3000292FF8 /* triangulation_filter.hpp */,
+				3F86536B23FF5D3000292FF8 /* conv_kernels.hpp */,
+			);
+			path = filter;
+			sourceTree = "<group>";
+		};
+		3F86536C23FF5D3000292FF8 /* utility */ = {
+			isa = PBXGroup;
+			children = (
+				3F86536D23FF5D3000292FF8 /* math_operators.hpp */,
+				3F86536E23FF5D3000292FF8 /* vec.hxx */,
+				3F86536F23FF5D3000292FF8 /* vec3.hpp */,
+				3F86537023FF5D3000292FF8 /* edge.hpp */,
+				3F86537123FF5D3000292FF8 /* triangle.hpp */,
+				3F86537223FF5D3000292FF8 /* mat.hpp */,
+				3F86537323FF5D3000292FF8 /* mat.hxx */,
+				3F86537423FF5D3000292FF8 /* triangle2.hpp */,
+				3F86537523FF5D3000292FF8 /* math_bundle.hpp */,
+				3F86537623FF5D3000292FF8 /* mat.cpp */,
+				3F86537723FF5D3000292FF8 /* vec3.hxx */,
+				3F86537823FF5D3000292FF8 /* vec.hpp */,
+				3F86537923FF5D3000292FF8 /* math_operators.hxx */,
+			);
+			path = utility;
+			sourceTree = "<group>";
+		};
+		3F86538123FF5D5F00292FF8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3F86538C23FF635500292FF8 /* libjpeg.a */,
+				3F86538623FF5E4700292FF8 /* libomp.a */,
+				3F86538223FF5D5F00292FF8 /* libpng16.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3F86538823FF5E8D00292FF8 /* generation */ = {
+			isa = PBXGroup;
+			children = (
+				3F86538923FF5F1200292FF8 /* triangle_mesh_art.cpp */,
+				3F86538A23FF5F1200292FF8 /* triangle_mesh_art.hpp */,
+			);
+			path = generation;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3F86534B23FF5CFF00292FF8 /* image_proc_gen */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3F86535323FF5CFF00292FF8 /* Build configuration list for PBXNativeTarget "image_proc_gen" */;
+			buildPhases = (
+				3F86534823FF5CFF00292FF8 /* Sources */,
+				3F86534923FF5CFF00292FF8 /* Frameworks */,
+				3F86534A23FF5CFF00292FF8 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = image_proc_gen;
+			productName = image_proc_gen;
+			productReference = 3F86534C23FF5CFF00292FF8 /* image_proc_gen */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3F86534423FF5CFF00292FF8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = "Christian Howard";
+				TargetAttributes = {
+					3F86534B23FF5CFF00292FF8 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 3F86534723FF5CFF00292FF8 /* Build configuration list for PBXProject "image_proc_gen" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3F86534323FF5CFF00292FF8;
+			productRefGroup = 3F86534D23FF5CFF00292FF8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3F86534B23FF5CFF00292FF8 /* image_proc_gen */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3F86534823FF5CFF00292FF8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F86537A23FF5D3000292FF8 /* convex_hull3d.cpp in Sources */,
+				3F86537B23FF5D3000292FF8 /* image.cpp in Sources */,
+				3F86537E23FF5D3000292FF8 /* conv_kernels.cpp in Sources */,
+				3F86537D23FF5D3000292FF8 /* corner_detector.cpp in Sources */,
+				3F86537C23FF5D3000292FF8 /* image_pixel.cpp in Sources */,
+				3F86537F23FF5D3000292FF8 /* triangulation_filter.cpp in Sources */,
+				3F86538523FF5DE300292FF8 /* main.cpp in Sources */,
+				3F86538023FF5D3000292FF8 /* mat.cpp in Sources */,
+				3F86538B23FF5F1200292FF8 /* triangle_mesh_art.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		3F86535123FF5CFF00292FF8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		3F86535223FF5CFF00292FF8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		3F86535423FF5CFF00292FF8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/libpng/1.6.37/lib,
+					/usr/local/Cellar/libomp/9.0.0/lib,
+					/usr/local/Cellar/jpeg/9d/lib,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		3F86535523FF5CFF00292FF8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/libpng/1.6.37/lib,
+					/usr/local/Cellar/libomp/9.0.0/lib,
+					/usr/local/Cellar/jpeg/9d/lib,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3F86534723FF5CFF00292FF8 /* Build configuration list for PBXProject "image_proc_gen" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F86535123FF5CFF00292FF8 /* Debug */,
+				3F86535223FF5CFF00292FF8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3F86535323FF5CFF00292FF8 /* Build configuration list for PBXNativeTarget "image_proc_gen" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F86535423FF5CFF00292FF8 /* Debug */,
+				3F86535523FF5CFF00292FF8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3F86534423FF5CFF00292FF8 /* Project object */;
+}

@@ -18,7 +18,7 @@
  be all the triangles that create the
  convex hull, so this is fairly important
  ========================================*/
-template< typename T>
+template< typename T = double >
 class Triangle{
     
 public:
@@ -29,6 +29,9 @@ public:
     // indices of points that are the
     // vertices of this triangle
     unsigned int vertices[3];
+    
+    double xv[3], yv[3], zv[3];
+    double colors[3][3];
     
     // the normal vector of the triangle
     T normal[3];
@@ -66,6 +69,20 @@ public:
         int i2 = vertices[1];
         int i3 = vertices[2];
         
+        // set the vector values for vertices
+        xv[0] = x[i1];
+        xv[1] = x[i2];
+        xv[2] = x[i3];
+        
+        yv[0] = y[i1];
+        yv[1] = y[i2];
+        yv[2] = y[i3];
+        
+        zv[0] = z[i1];
+        zv[1] = z[i2];
+        zv[2] = z[i3];
+        
+        // find difference vectors
         T u[] = { x[i2] - x[i1], y[i2] - y[i1], z[i2] - z[i1] };
         T v[] = { x[i3] - x[i1], y[i3] - y[i1], z[i3] - z[i1] };
         
@@ -105,6 +122,38 @@ public:
         
         return s >= 0.0 && t >= 0.0 && (s + t <= (1.0 + eps));
         
+    }
+    
+    bool pointWithinTriangle2( T xt, T yt, double eps = 0.0 ) const{
+        T pt1[] = {xv[0], yv[0]};
+        T pt2[] = {xv[1], yv[1]};
+        T pt3[] = {xv[2], yv[2]};
+        
+        T dx = xt - pt1[0], dy = yt - pt1[1];
+        T dx1= pt2[0] - pt1[0], dy1 = pt2[1] - pt1[1];
+        T dx2= pt3[0] - pt1[0], dy2 = pt3[1] - pt1[1];
+        T detA = dx1*dy2 - dx2*dy1;
+        T s = (dy2*dx - dx2*dy)/detA;
+        T t = (-dy1*dx + dx1*dy)/detA;
+        
+        return s >= 0.0 && t >= 0.0 && (s + t <= (1.0 + eps));
+    }
+    
+    void color_interp( T xt, T yt, double color[3]) const {
+        T pt1[] = {xv[0], yv[0]};
+        T pt2[] = {xv[1], yv[1]};
+        T pt3[] = {xv[2], yv[2]};
+        
+        T dx = xt - pt1[0], dy = yt - pt1[1];
+        T dx1= pt2[0] - pt1[0], dy1 = pt2[1] - pt1[1];
+        T dx2= pt3[0] - pt1[0], dy2 = pt3[1] - pt1[1];
+        T detA = dx1*dy2 - dx2*dy1;
+        T s = (dy2*dx - dx2*dy)/detA;
+        T t = (-dy1*dx + dx1*dy)/detA;
+        
+        for(int d = 0; d < 3; ++d){
+            color[d] = s*colors[d][0] + t*colors[d][1] + (1 - s - t)*colors[d][2];
+        }
     }
     
     
